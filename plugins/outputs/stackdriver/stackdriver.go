@@ -155,7 +155,7 @@ func (s *Stackdriver) Write(metrics []telegraf.Metric) error {
 
 			metricKind, err := getStackdriverMetricKind(m.Type())
 			if err != nil {
-				log.Printf("E! [outputs.stackdriver] get metric failed: %s", err)
+				log.Printf("E! [outputs.stackdriver] get metric kind for metric %s type %T field %s failed: %s", m.Name(), m.Type(), f, err)
 				continue
 			}
 
